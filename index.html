@@ -3,93 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Breve - Revelação Misteriosa</title>
-    <!-- Inclui o Tailwind CSS via CDN -->
+    <title>Em Breve - Nova Revelação</title>
+    <!-- Inclui o Tailwind CSS via CDN para utilitários básicos -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inclui fontes elegantes do Google Fonts -->
+    <!-- Inclui fontes para o estilo dark -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Reset básico e estilos globais */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0F0F1A; /* Azul escuro muito profundo */
-            color: #D0D0D0; /* Cinza claro suave para o texto principal */
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            background-image: radial-gradient(circle at center, #1A1A2A 0%, #0F0F1A 70%, #05050A 100%); /* Gradiente radial suave */
+            background-color: #0F0F1A; /* Azul escuro profundo */
+            color: #D0D0D0; /* Cinza claro suave */
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            background-image: radial-gradient(circle at center, #1A1A2A 0%, #0F0F1A 70%, #05050A 100%);
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
+            overflow-x: hidden; /* Evita rolagem horizontal */
         }
+
         .container {
             max-width: 1200px;
-            width: 100%;
-            text-align: center;
-            background-color: rgba(20, 20, 30, 0.8); /* Fundo semi-transparente mais escuro para o container */
-            padding: 4rem; /* Mais padding para um visual espaçoso */
-            border-radius: 0.75rem; /* Cantos levemente arredondados */
-            border: 1px solid rgba(70, 70, 90, 0.5); /* Borda muito sutil */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.05); /* Sombra profunda e interna muito sutil */
-            transition: all 0.5s ease-in-out; /* Transição suave */
-            backdrop-filter: blur(8px); /* Efeito de desfoque elegante */
+            width: 90%; /* Largura fluida para melhor responsividade */
+            margin: 20px auto; /* Centraliza com margem superior/inferior */
+            padding: 4rem 2rem; /* Aumenta o padding para espaçamento */
+            background-color: rgba(20, 20, 30, 0.8);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(70, 70, 90, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            transition: all 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .container:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.08); /* Sombra mais intensa no hover */
-            transform: translateY(-10px); /* Elevação sutil */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
         }
+
+        /* Títulos */
         h1, h2 {
-            font-family: 'Montserrat', sans-serif; /* Fonte moderna e elegante para os títulos */
-            letter-spacing: 0.12em; /* Espaçamento sutil entre letras */
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+            margin: 0; /* Zera margens padrão */
         }
         h1 {
-            color: #E0E0E0; /* Cinza claro principal */
-            font-size: 7xl; /* Tamanho grande */
-            margin-bottom: -1rem; /* Aproxima os títulos */
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1); /* Brilho sutil */
+            color: #E0E0E0;
+            font-size: 5rem; /* Ajuste para ser grande, mas sem exageros iniciais */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
         }
         h2 {
-            color: #A0A0B0; /* Cinza azulado para "2026..." */
-            font-size: 5xl;
-            margin-top: 0;
-            margin-bottom: 3rem; /* Mais espaço abaixo do título */
-            animation: pulse-dark 2s infinite alternate ease-in-out; /* Pulsar suave para o 2026 */
-            text-shadow: 0 0 10px rgba(160, 160, 176, 0.3); /* Sombra suave */
+            color: #A0A0B0;
+            font-size: 3.5rem; /* Tamanho para "2026..." */
+            margin-top: 0.5rem; /* Pequena margem superior para separar de h1 */
+            margin-bottom: 2.5rem;
+            animation: pulse-dark 2s infinite alternate ease-in-out;
+            text-shadow: 0 0 10px rgba(160, 160, 176, 0.3);
         }
         @keyframes pulse-dark {
             from { opacity: 0.7; transform: scale(1); }
-            to { opacity: 1; transform: scale(1.01); }
+            to { opacity: 1; transform: scale(1.02); }
         }
 
-        /* Estilos para o iframe do vídeo do YouTube */
-        .video-wrapper iframe {
-            border-radius: 0.75rem; /* Cantos arredondados */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.03); /* Sombra profunda e sutil interna */
-            border: 2px solid rgba(80, 80, 100, 0.5); /* Borda discreta */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            filter: brightness(0.9) contrast(1.1); /* Ajustes para vídeo em tema escuro */
-            width: 100%; /* Garante que o iframe ocupe a largura total */
-            max-width: 900px; /* Adapta ao max-width do vídeo anterior */
-            aspect-ratio: 16/9; /* Mantém a proporção 16:9 */
-            height: auto; /* A altura será ajustada automaticamente */
-        }
-        .video-wrapper iframe:hover {
-            transform: scale(1.005);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.06); /* Sombra levemente mais intensa */
-        }
-        /* Responsividade para o wrapper do vídeo */
+        /* Wrapper do vídeo responsivo */
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Proporção 16:9 (altura/largura) para vídeo responsivo */
+            padding-bottom: 56.25%; /* Proporção 16:9 (altura/largura) */
             height: 0;
             overflow: hidden;
-            max-width: 900px; /* Mantém o max-width */
+            max-width: 900px; /* Limita a largura máxima do vídeo */
+            margin-bottom: 2.5rem; /* Margem abaixo do vídeo */
         }
         .video-wrapper iframe {
             position: absolute;
@@ -97,53 +91,75 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(80, 80, 100, 0.5);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            filter: brightness(0.9) contrast(1.1);
+        }
+        .video-wrapper iframe:hover {
+            transform: scale(1.005);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.06);
         }
 
-
+        /* Contador regressivo */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+            gap: 1rem;
+            width: 100%;
+            max-width: 700px; /* Limita a largura máxima do contador */
+        }
+        @media (min-width: 768px) {
+            .countdown-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas maiores */
+                gap: 1.5rem;
+            }
+        }
         .countdown-item {
-            background-color: rgba(25, 25, 40, 0.9); /* Fundo dos itens do contador mais escuro */
-            padding: 1.8rem;
-            border-radius: 0.5rem; /* Cantos mais quadrados */
-            border: 1px solid rgba(60, 60, 80, 0.4); /* Borda sutil */
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.02); /* Sombra discreta */
+            background-color: rgba(25, 25, 40, 0.9);
+            padding: 1.5rem; /* Padding ajustado */
+            border-radius: 0.5rem;
+            border: 1px solid rgba(60, 60, 80, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.02);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease-in-out;
-            cursor: default; /* Remove pointer cursor */
         }
         .countdown-item:hover {
-            background-color: rgba(30, 30, 50, 0.9); /* Fundo um pouco mais claro no hover */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Sombra mais visível no hover */
-            transform: translateY(-3px); /* Leve elevação */
+            background-color: rgba(30, 30, 50, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+            transform: translateY(-3px);
         }
-        .countdown-item span:first-child { /* Estilo para os números do contador */
-            font-family: 'Montserrat', sans-serif; /* Fonte elegante para os números */
-            font-size: 4.5rem; /* Números grandes */
+        .countdown-item span:first-child {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem; /* Tamanho dos números */
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.1); /* Brilho sutil */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.1);
         }
-        #days { color: #A0B0D0; } /* Azul acinzentado */
-        #hours { color: #B0A0D0; } /* Roxo acinzentado */
-        #minutes { color: #D0B0A0; } /* Marrom acinzentado */
-        #seconds { color: #D0A0A0; } /* Vermelho acinzentado */
+        #days { color: #A0B0D0; }
+        #hours { color: #B0A0D0; }
+        #minutes { color: #D0B0A0; }
+        #seconds { color: #D0A0D0; }
 
         .countdown-item span:last-child {
-            color: #909090; /* Texto das unidades em cinza médio */
-            font-size: lg;
-            margin-top: 0.6rem;
+            color: #909090;
+            font-size: 1rem; /* Tamanho das unidades */
+            margin-top: 0.4rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         #countdownMessage {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2xl;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Sombra suave para a mensagem final */
+            font-size: 1.5rem; /* Tamanho da mensagem final */
+            margin-top: 2.5rem; /* Margem superior para separar do contador */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #C0C0C0; /* Cor de texto principal */
+            color: #C0C0C0;
             animation: pulse-message 2s infinite alternate ease-in-out;
         }
         @keyframes pulse-message {
@@ -151,55 +167,59 @@
             to { opacity: 1; transform: scale(1.01); }
         }
 
-        /* Classes Tailwind customizadas para o texto */
-        .text-7xl { font-size: 5rem; } /* 80px */
-        .text-8xl { font-size: 7rem; } /* 112px */
+        /* Responsividade para fontes e paddings em telas menores */
+        @media (max-width: 640px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            .container { padding: 2rem 1rem; }
+            .countdown-item span:first-child { font-size: 2.5rem; }
+            .countdown-item span:last-child { font-size: 0.9rem; }
+            #countdownMessage { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body class="selection:bg-gray-700 selection:text-white">
-    <div class="container flex flex-col items-center justify-center space-y-8">
+    <div class="container">
         <!-- Título "EM BREVE" -->
-        <h1 class="text-7xl md:text-8xl font-bold">
+        <h1 class="font-bold">
             EM BREVE
         </h1>
         <!-- "2026..." abaixo do "EM BREVE" e pulsando -->
-        <h2 class="text-5xl md:text-6xl font-bold mt-2">
+        <h2 class="font-bold">
             2026...
         </h2>
 
         <!-- Seção do Vídeo do YouTube em Loop -->
-        <div class="w-full flex justify-center mb-8">
-            <div class="video-wrapper rounded-xl overflow-hidden">
-                <iframe
-                    src="https://www.youtube.com/embed/qfRhzVFv8zE?autoplay=1&loop=1&playlist=qfRhzVFv8zE&controls=0&mute=1&playsinline=1&modestbranding=1&rel=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media; fullscreen"
-                    allowfullscreen
-                ></iframe>
-            </div>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/qfRhzVFv8zE?autoplay=1&loop=1&playlist=qfRhzVFv8zE&controls=0&playsinline=1&modestbranding=1&rel=0"
+                frameborder="0"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowfullscreen
+            ></iframe>
         </div>
 
         <!-- Contador Regressivo -->
-        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl">
+        <div id="countdown" class="countdown-grid">
             <div class="countdown-item">
-                <span id="days" class="text-4xl md:text-6xl font-bold">00</span>
-                <span class="text-lg md:text-xl">Dias</span>
+                <span id="days">00</span>
+                <span>Dias</span>
             </div>
             <div class="countdown-item">
-                <span id="hours" class="text-4xl md:text-6xl font-bold">00</span>
-                <span class="text-lg md:text-xl">Horas</span>
+                <span id="hours">00</span>
+                <span>Horas</span>
             </div>
             <div class="countdown-item">
-                <span id="minutes" class="text-4xl md:text-6xl font-bold">00</span>
-                <span class="text-lg md:text-xl">Minutos</span>
+                <span id="minutes">00</span>
+                <span>Minutos</span>
             </div>
             <div class="countdown-item">
-                <span id="seconds" class="text-4xl md:text-6xl font-bold">00</span>
-                <span class="text-lg md:text-xl">Segundos</span>
+                <span id="seconds">00</span>
+                <span>Segundos</span>
             </div>
         </div>
 
-        <p id="countdownMessage" class="text-2xl mt-8 font-semibold"></p>
+        <p id="countdownMessage"></p>
     </div>
 
     <script>
