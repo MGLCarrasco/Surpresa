@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em Breve - Revelação Misteriosa</title>
+    <!-- Inclui o Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui fontes elegantes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F0F1A; /* Azul escuro muito profundo */
+            color: #D0D0D0; /* Cinza claro suave para o texto principal */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: radial-gradient(circle at center, #1A1A2A 0%, #0F0F1A 70%, #05050A 100%); /* Gradiente radial suave */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(20, 20, 30, 0.8); /* Fundo semi-transparente mais escuro para o container */
+            padding: 4rem; /* Mais padding para um visual espaçoso */
+            border-radius: 0.75rem; /* Cantos levemente arredondados */
+            border: 1px solid rgba(70, 70, 90, 0.5); /* Borda muito sutil */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.05); /* Sombra profunda e interna muito sutil */
+            transition: all 0.5s ease-in-out; /* Transição suave */
+            backdrop-filter: blur(8px); /* Efeito de desfoque elegante */
+        }
+        .container:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.08); /* Sombra mais intensa no hover */
+            transform: translateY(-10px); /* Elevação sutil */
+        }
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif; /* Fonte moderna e elegante para os títulos */
+            letter-spacing: 0.12em; /* Espaçamento sutil entre letras */
+            text-transform: uppercase;
+        }
+        h1 {
+            color: #E0E0E0; /* Cinza claro principal */
+            font-size: 7xl; /* Tamanho grande */
+            margin-bottom: -1rem; /* Aproxima os títulos */
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1); /* Brilho sutil */
+        }
+        h2 {
+            color: #A0A0B0; /* Cinza azulado para "2026..." */
+            font-size: 5xl;
+            margin-top: 0;
+            margin-bottom: 3rem; /* Mais espaço abaixo do título */
+            animation: pulse-dark 2s infinite alternate ease-in-out; /* Pulsar suave para o 2026 */
+            text-shadow: 0 0 10px rgba(160, 160, 176, 0.3); /* Sombra suave */
+        }
+        @keyframes pulse-dark {
+            from { opacity: 0.7; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.01); }
+        }
+
+        /* Estilos para o iframe do vídeo do YouTube */
+        .video-wrapper iframe {
+            border-radius: 0.75rem; /* Cantos arredondados */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.03); /* Sombra profunda e sutil interna */
+            border: 2px solid rgba(80, 80, 100, 0.5); /* Borda discreta */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            filter: brightness(0.9) contrast(1.1); /* Ajustes para vídeo em tema escuro */
+            width: 100%; /* Garante que o iframe ocupe a largura total */
+            max-width: 900px; /* Adapta ao max-width do vídeo anterior */
+            aspect-ratio: 16/9; /* Mantém a proporção 16:9 */
+            height: auto; /* A altura será ajustada automaticamente */
+        }
+        .video-wrapper iframe:hover {
+            transform: scale(1.005);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.06); /* Sombra levemente mais intensa */
+        }
+        /* Responsividade para o wrapper do vídeo */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 (altura/largura) para vídeo responsivo */
+            height: 0;
+            overflow: hidden;
+            max-width: 900px; /* Mantém o max-width */
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .countdown-item {
+            background-color: rgba(25, 25, 40, 0.9); /* Fundo dos itens do contador mais escuro */
+            padding: 1.8rem;
+            border-radius: 0.5rem; /* Cantos mais quadrados */
+            border: 1px solid rgba(60, 60, 80, 0.4); /* Borda sutil */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.02); /* Sombra discreta */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+            cursor: default; /* Remove pointer cursor */
+        }
+        .countdown-item:hover {
+            background-color: rgba(30, 30, 50, 0.9); /* Fundo um pouco mais claro no hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Sombra mais visível no hover */
+            transform: translateY(-3px); /* Leve elevação */
+        }
+        .countdown-item span:first-child { /* Estilo para os números do contador */
+            font-family: 'Montserrat', sans-serif; /* Fonte elegante para os números */
+            font-size: 4.5rem; /* Números grandes */
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.1); /* Brilho sutil */
+        }
+        #days { color: #A0B0D0; } /* Azul acinzentado */
+        #hours { color: #B0A0D0; } /* Roxo acinzentado */
+        #minutes { color: #D0B0A0; } /* Marrom acinzentado */
+        #seconds { color: #D0A0A0; } /* Vermelho acinzentado */
+
+        .countdown-item span:last-child {
+            color: #909090; /* Texto das unidades em cinza médio */
+            font-size: lg;
+            margin-top: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #countdownMessage {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2xl;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Sombra suave para a mensagem final */
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #C0C0C0; /* Cor de texto principal */
+            animation: pulse-message 2s infinite alternate ease-in-out;
+        }
+        @keyframes pulse-message {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.01); }
+        }
+
+        /* Classes Tailwind customizadas para o texto */
+        .text-7xl { font-size: 5rem; } /* 80px */
+        .text-8xl { font-size: 7rem; } /* 112px */
+    </style>
+</head>
+<body class="selection:bg-gray-700 selection:text-white">
+    <div class="container flex flex-col items-center justify-center space-y-8">
+        <!-- Título "EM BREVE" -->
+        <h1 class="text-7xl md:text-8xl font-bold">
+            EM BREVE
+        </h1>
+        <!-- "2026..." abaixo do "EM BREVE" e pulsando -->
+        <h2 class="text-5xl md:text-6xl font-bold mt-2">
+            2026...
+        </h2>
+
+        <!-- Seção do Vídeo do YouTube em Loop -->
+        <div class="w-full flex justify-center mb-8">
+            <div class="video-wrapper rounded-xl overflow-hidden">
+                <iframe
+                    src="https://www.youtube.com/embed/qfRhzVFv8zE?autoplay=1&loop=1&playlist=qfRhzVFv8zE&controls=0&mute=1&playsinline=1&modestbranding=1&rel=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+
+        <!-- Contador Regressivo -->
+        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl">
+            <div class="countdown-item">
+                <span id="days" class="text-4xl md:text-6xl font-bold">00</span>
+                <span class="text-lg md:text-xl">Dias</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours" class="text-4xl md:text-6xl font-bold">00</span>
+                <span class="text-lg md:text-xl">Horas</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes" class="text-4xl md:text-6xl font-bold">00</span>
+                <span class="text-lg md:text-xl">Minutos</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds" class="text-4xl md:text-6xl font-bold">00</span>
+                <span class="text-lg md:text-xl">Segundos</span>
+            </div>
+        </div>
+
+        <p id="countdownMessage" class="text-2xl mt-8 font-semibold"></p>
+    </div>
+
+    <script>
+        // Define a data alvo para 10 de abril de 2026, 10:00:00 (considerando o fuso horário local)
+        const targetDate = new Date('2026-04-10T10:00:00').getTime();
+
+        const daysSpan = document.getElementById('days');
+        const hoursSpan = document.getElementById('hours');
+        const minutesSpan = document.getElementById('minutes');
+        const secondsSpan = document.getElementById('seconds');
+        const countdownMessage = document.getElementById('countdownMessage');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Cálculos de tempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Exibe os resultados nos elementos HTML, com preenchimento de zero
+            daysSpan.textContent = String(days).padStart(2, '0');
+            hoursSpan.textContent = String(hours).padStart(2, '0');
+            minutesSpan.textContent = String(minutes).padStart(2, '0');
+            secondsSpan.textContent = String(seconds).padStart(2, '0');
+
+            // Quando o contador chega a zero
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                daysSpan.textContent = '00';
+                hoursSpan.textContent = '00';
+                minutesSpan.textContent = '00';
+                secondsSpan.textContent = '00';
+                countdownMessage.textContent = 'A SURPRESA COMEÇOU!';
+                // Você pode adicionar mais ações aqui, como redirecionar ou exibir conteúdo adicional
+            }
+        }
+
+        // Atualiza o contador a cada segundo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Chama a função uma vez imediatamente para evitar atraso inicial na exibição
+        updateCountdown();
+    </script>
+</body>
+</html>
